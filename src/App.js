@@ -1,11 +1,18 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import {NavBar} from './components/NavBar/navbar'
+//export const UnComponente = () => {
+  //const nombre = 'luca'
+  
+  //return <h1>{nombre}</h1>
+//}
 
-function App() {
+/* function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -20,6 +27,9 @@ function App() {
       </header>
     </div>
   );
-}
-
+}*/
+const App = props => {
+return <> 
+<NavBar/>
+</>}
 export default App;
