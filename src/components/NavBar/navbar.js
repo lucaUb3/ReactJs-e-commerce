@@ -1,7 +1,8 @@
 import React from 'react';
 import {AppBar, Toolbar, Typography, makeStyles,
-    ListItem, ListItemText, List, Button} from '@material-ui/core';
+ListItem, ListItemText, List, Button} from '@material-ui/core';
 import {navBarStyle} from './NavBarStyle.js';
+import {CartWidget} from './CartWidget.js';
 
 const commonStyles = {
     display: 'flex',
@@ -13,10 +14,11 @@ const useStyles = makeStyles ((theme) => navBarStyle (theme));
    
 
 export const NavBar = props => {
-        
+     
     const classes = useStyles();
 
-    return <AppBar position ="fixed" className = {classes.navStyle}>
+    return <div>
+    <AppBar position ="fixed" className = {classes.navStyle}>
         <Toolbar>
             <div className = {classes.leftContainer}>
                 <Typography variant = "h5" className = {classes.brand}>
@@ -27,10 +29,12 @@ export const NavBar = props => {
                 <Button className = {classes.buttonStyle}>iniciar sesion</Button>
                 </div> 
                 
-                    </div>
-                    </Toolbar>
+                </div>
+                <CartWidget/>
+                </Toolbar>
          </AppBar>
-
+         
+         </div>
     };
 
 

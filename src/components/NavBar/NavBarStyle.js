@@ -1,5 +1,9 @@
 import React from 'react';
-import {makeStyes} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 
 
 
@@ -14,7 +18,7 @@ export const navBarStyle = theme => {
     return({
     
     
-    navStyle: {
+  navStyle: {
     display: 'flex',
     background: 'linear-gradient(45deg, black 70%,#7D0C32 90%)',
     
@@ -36,6 +40,12 @@ export const navBarStyle = theme => {
         alignSelf: 'center',
         
     },
+      rigthConteiner : {
+        display: 'flex',
+        alignSelf: 'rigth',
+
+      },
+       
       
     },
 
@@ -54,7 +64,9 @@ export const navBarStyle = theme => {
        display: 'flex',
        columnGap: '1em'
 },
-  
+  CartWidget :{
+    color: '#FFFCFC',
+  }
       
       
   
