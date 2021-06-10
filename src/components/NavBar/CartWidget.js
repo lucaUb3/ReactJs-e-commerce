@@ -5,7 +5,6 @@ import {navBarStyle} from './NavBarStyle.js';
 import {makeStyles} from '@material-ui/core';
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
-import { Counter } from '../Counter/Counter.js';
 
 const useStyles = makeStyles ((theme) => navBarStyle (theme));
 
