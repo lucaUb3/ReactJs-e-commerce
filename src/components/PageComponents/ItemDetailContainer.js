@@ -29,13 +29,12 @@ const promiseItemDetail = () => {
 
 export const ItemDetailContainer = () => {
   const classes = useStyle();
-  const [SampleData, setSampleData] = useState([]);
+  const [sampleData, setSampleData] = useState(undefined);
   
 
   const ejecutarSeleccion = () => {
     promiseItemDetail().then((data) => {
-      const dataFiltrada = data.filter((element) => element.destacado);
-      setSampleData(dataFiltrada);
+    setSampleData(data);
     });
   };
 
@@ -45,15 +44,9 @@ export const ItemDetailContainer = () => {
 
   return <> 
         
-      {SampleData.length === 0 ? (
-        <div className={classes.root}>
-        <CircularProgress />
-        <CircularProgress color="secondary"/>
-      </div>
-      ) : (<Grid container>
-          <Grid item xs = {12}>
-         <Grid className = {classes.GridConteiner} container justify ="center">
-          {SampleData.map((element) => <ItemDetail key = {element.id}
+      {sampleData ? 
+        ( <Grid className = {classes.GridConteiner} container justify ="center">
+          {sampleData.map((element) => <ItemDetail key = {element.id}
           id={element.id} 
           title={element.title} 
           description={element.description}
@@ -61,9 +54,13 @@ export const ItemDetailContainer = () => {
           pictureUrl={element.picture.pictureUrl} 
           />)}
           </Grid>
-      </Grid>
-      </Grid>)
-       }
+      ): (<div className={classes.root}>
+        
+        <CircularProgress color="secondary"/>
+      </div>
+
+      )
+       };
    
     </>
  };

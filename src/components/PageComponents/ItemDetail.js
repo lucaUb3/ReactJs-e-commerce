@@ -13,7 +13,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 const useStyle = makeStyles((theme) => ItemDetailStyle(theme));
 
 export const ItemDetail = props => {
-    const {SampleData} = props;
+    const {sampleData} = props;
     const classes = useStyle();
 
     return <> 
@@ -21,15 +21,15 @@ export const ItemDetail = props => {
         <CardActionArea className = {classes.cardAction}>
         <CardMedia 
             component = 'img'
-            image = {SampleData.pictureUrl}
+            image = {sampleData.pictureUrl}
             width ="50%"
-            title = {SampleData.title} 
+            title = {sampleData.title} 
             />
         <CardContent className = {classes.CardContent}>
-            <Typography className = {classes.titulo} component = "h2" >{SampleData.title}</Typography>
-            <Typography className = {classes.description} component = "p" >{SampleData.description}</Typography>
-            <Typography className = {classes.price}>${SampleData.price}</Typography>
-            <Typography className = {classes.id}component = "p" >{SampleData.id}</Typography>
+            <Typography className = {classes.titulo} component = "h2" >{sampleData.title}</Typography>
+            <Typography className = {classes.description} component = "p" >{sampleData.description}</Typography>
+            <Typography className = {classes.price}>${sampleData.price}</Typography>
+            <Typography className = {classes.id}component = "p" >{sampleData.id}</Typography>
         </CardContent>
         </CardActionArea>
     </Card>
