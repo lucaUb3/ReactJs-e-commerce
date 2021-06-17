@@ -7,34 +7,65 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+import { Typography, Grid,Paper } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
+
 const useStyle = makeStyles((theme) => ItemDetailStyle(theme));
+
 
 export const ItemDetail = props => {
     const {sampleData} = props;
     const classes = useStyle();
-
-    return <> 
-        <Card className = {classes.root}>
-        <CardActionArea className = {classes.cardAction}>
-        <CardMedia 
+    return <>
+       <div className={classes.root}>
+      <Paper className={classes.paper}>
+        <Grid container spacing={2}>
+          <Grid item>
+            <CardActionArea className = {classes.cardAction}>
+            <CardMedia 
             component = 'img'
             image = {sampleData.picture.pictureUrl}
             width ="50%"
             title = {sampleData.title} 
+            
             />
-        <CardContent className = {classes.CardContent}>
-            <Typography className = {classes.titulo} component = "h2" >{sampleData.title}</Typography>
-            <Typography className = {classes.description} component = "p" >{sampleData.description}</Typography>
-            <Typography className = {classes.price}>${sampleData.price}</Typography>
-            <Typography className = {classes.id}component = "p" >{sampleData.id}</Typography>
-        </CardContent>
         </CardActionArea>
-    </Card>
-              
-       
-   
+          </Grid>
+
+          <Grid item xs={12} sm container>
+           <CardMedia 
+            component = 'audio'
+            audio = "https://www.youtube.com/watch?v=yY7iGa4t9-I"
+            width ="30%"
+            title = {sampleData.title} 
+            
+            />
+            <Grid item xs container direction="column" spacing={2}>
+              <Grid item xs>
+                <Typography gutterBottom variant="subtitle1">
+                  {sampleData.title} 
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                  Detalle
+                </Typography>
+                <Typography variant="body2" color="textSecondary">
+                  {sampleData.description}
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant="body2" style={{ cursor: 'pointer' }}>
+                 Boton 
+                </Typography>
+                
+              </Grid>
+            </Grid>
+            <Grid item>
+              <Typography variant="subtitle1">${sampleData.price}</Typography>
+            </Grid>
+            </Grid>
+        </Grid>
+      </Paper>
+    </div>
     </>
- };
+};

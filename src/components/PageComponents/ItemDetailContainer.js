@@ -15,7 +15,7 @@ const promiseItemDetail = () => {
                {id: 5, 
                 destacado: true, 
                 title: "NeoTokyo",
-                description: 'Brass Sounds and Sounds FX',
+                description: 'CyberPunk sounds and Fx sound',
                 price: 200,
                 picture: {
                 pictureUrl:"https://i0.wp.com/touchloops.com/wp-content/uploads/2019/06/Download-Lo-Fi-Hip-Hop-Loops_700.jpg?fit=700%2C700&ssl=1"
