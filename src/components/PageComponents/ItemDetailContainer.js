@@ -45,22 +45,11 @@ export const ItemDetailContainer = () => {
   return <> 
         
       {sampleData ? 
-        ( <Grid className = {classes.GridConteiner} container justify ="center">
-          {sampleData.map((element) => <ItemDetail key = {element.id}
-          id={element.id} 
-          title={element.title} 
-          description={element.description}
-          price={element.price}
-          pictureUrl={element.picture.pictureUrl} 
-          />)}
-          </Grid>
-      ): (<div className={classes.root}>
+         <ItemDetail element = {sampleData}/>
+        : <div className={classes.root}>
         
         <CircularProgress color="secondary"/>
-      </div>
-
-      )
-       };
+          </div>};
    
     </>
  };

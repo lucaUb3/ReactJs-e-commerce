@@ -88,7 +88,8 @@ export const ItemList = () => {
         <CircularProgress />
         <CircularProgress color="secondary"/>
       </div>
-      ) : (
+      ) : (<Grid container>
+          <Grid item xs = {12}>
          <Grid className = {classes.GridConteiner} container justify ="center">
           {ItemsData.map((element) => <Item key = {element.id}
           id={element.id} 
@@ -97,7 +98,9 @@ export const ItemList = () => {
           price={element.price}
           pictureUrl={element.picture.pictureUrl} 
           />)}
-          </Grid>)
+          </Grid>
+      </Grid>
+      </Grid>)
        }
    
     </>
