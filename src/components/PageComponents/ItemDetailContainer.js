@@ -45,7 +45,7 @@ export const ItemDetailContainer = () => {
   return <> 
         
       {sampleData ? 
-         <ItemDetail element = {sampleData}/>
+         <ItemDetail sampleData = {sampleData}/>
         : <div className={classes.root}>
         
         <CircularProgress color="secondary"/>

@@ -21,7 +21,7 @@ export const ItemDetail = props => {
         <CardActionArea className = {classes.cardAction}>
         <CardMedia 
             component = 'img'
-            image = {sampleData.pictureUrl}
+            image = {sampleData.picture.pictureUrl}
             width ="50%"
             title = {sampleData.title} 
             />

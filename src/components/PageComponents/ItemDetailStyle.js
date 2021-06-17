@@ -10,7 +10,7 @@ return({
             },
         },
         GridConteiner : {
-            height: "100%",
+            height: "50%",
             paddingTop: 5,
             justifyContent: 'start',
         }
