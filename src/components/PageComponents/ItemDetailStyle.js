@@ -5,7 +5,7 @@ return({
         root: {
     flexGrow: 1,
     padding: theme.spacing(4),
-    margin: 'auto',
+    marginTop: '1em',
   },
   paper: {
     padding: theme.spacing(4),

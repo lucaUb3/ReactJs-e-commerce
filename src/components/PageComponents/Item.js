@@ -11,7 +11,7 @@ import {itemStyle} from "./ItemStyle.js";
 const useStyle = makeStyles((theme) => itemStyle(theme));
 
 export const Item = props => {
-    const {id,title,description,price,pictureUrl} = props;
+    const {itemsData} = props;
     const classes = useStyle();
 
     return <>
@@ -19,15 +19,15 @@ export const Item = props => {
         <CardActionArea className = {classes.cardAction}>
         <CardMedia 
             component = 'img'
-            image = {pictureUrl}
+            image = {itemsData.pictureUrl}
             width ="50%"
-            title = {title} 
+            title = {itemsData.title} 
             />
         <CardContent className = {classes.CardContent}>
-            <Typography className = {classes.titulo} component = "h2" >{title}</Typography>
-            <Typography className = {classes.description} component = "p" >{description}</Typography>
-            <Typography className = {classes.price}>${price}</Typography>
-            <Typography className = {classes.id}component = "p" >{id}</Typography>
+            <Typography className = {classes.titulo} component = "h2" >{itemsData.title}</Typography>
+            <Typography className = {classes.description} component = "p" >{itemsData.description}</Typography>
+            <Typography className = {classes.price}>${itemsData.price}</Typography>
+            <Typography className = {classes.id}component = "p" >{itemsData.id}</Typography>
         </CardContent>
         </CardActionArea>
     </Card>

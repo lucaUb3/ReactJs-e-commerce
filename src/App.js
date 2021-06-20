@@ -10,7 +10,7 @@ import {ItemDetailContainer} from './components/PageComponents/ItemDetailContain
 const App = props => {
 return <div> 
 <NavBar/>
-<ItemDetailContainer/>
+<ItemListContainer/>
 
 </div>}
 
