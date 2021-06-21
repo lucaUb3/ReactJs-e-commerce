@@ -3,16 +3,22 @@ import { CardContent } from "@material-ui/core"
 export const itemStyle = theme => {
     return ({
         root: {
-            maxWidth: '20%',
+            maxWidth: 300,
+            minWidth: 300,
             margin: '10px',
             backgroundColor: 'black',
             
         },
+        cardContent: {
+             
+            
+          },
+
         
         titulo:{
             fontSize: '30px',
             fontWeight: 'bold',
-            marginBottom: '20px',
+            marginBottom: '10px',
             color: 'white',
             
         },

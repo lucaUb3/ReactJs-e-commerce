@@ -20,13 +20,11 @@ export const ItemList = props => {
         <div className={classes.root}>
        <CircularProgress color="secondary"/>
       </div>
-      ) : (<Grid container>
-          <Grid item xs = {12}>
+      ) : (<Grid  container className = {classes.GridConteiner1}>
+          <Grid item xs = {12} className = {classes.GridContainer2}>
          <Grid className = {classes.GridConteiner} container justify ="center">
-          {itemsData.map((element) => {
-          return <div> <Item {...itemsData} key = {itemsData.id}
-          /></div>}
-          )}
+          {props.itemsData.map((element) => {
+          return <div> <Item {...element} key = {element.id}/> </div> })}
           </Grid>
       </Grid>
       </Grid>)

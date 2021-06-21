@@ -6,6 +6,10 @@ import {ItemList} from './ItemList.js';
 import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {itemListContainerStyles} from './ItemListContainerStyles.js'
+import {useParams} from "react-router-dom";
+
+
+
 
 const useStyle = makeStyles((theme) => itemListContainerStyles(theme));
 
@@ -20,6 +24,7 @@ const promiseItems = () => {
               title: "Index of Metals",
               description: 'Brass Sounds and Sounds FX',
               price: 170,
+              categoria: "samples",
               picture: {
                   pictureUrl:"https://i1.wp.com/touchloops.com/wp-content/uploads/2020/07/Motor-City-Brass_NEW_1000x.jpg?fit=1000%2C1000&ssl=1"
                   },
@@ -29,6 +34,7 @@ const promiseItems = () => {
                 title: "Woods Strings",
                 description: 'String Sounds and Sounds FX',
                 price: 150,
+                categoria: "samples",
                 picture: {
                     pictureUrl:"https://cdn-resources.ableton.com/resources/public/2012/12/11/orchestral-strings.png"
                     },
@@ -38,6 +44,7 @@ const promiseItems = () => {
                 title: "CreepBeat",
                 description: 'Dark Beats and Sounds FX',
                 price: 70,
+                categoria: "beats",
                 picture: {
                     pictureUrl:"https://cdn.sanity.io/images/e5dtp8wy/production/N1YHPMlZ3Vn5IB19AiHzhgE7-2817x2583.tiff?w=300"
                     },
@@ -47,6 +54,7 @@ const promiseItems = () => {
                 title: "Desert",
                 description: 'Ambient Sounds and foleys',
                 price: 90,
+                categoria: "samples",
                 picture: {
                     pictureUrl:"https://cdna.artstation.com/p/assets/images/images/003/394/744/large/muhammad-iqbal-ridzuan-red-desert.jpg?1473244057"
                     },
@@ -56,6 +64,7 @@ const promiseItems = () => {
                 title: "NeoTokyo",
                 description: 'Brass Sounds and Sounds FX',
                 price: 200,
+                categoria: "beats",
                 picture: {
                     pictureUrl:"https://i0.wp.com/touchloops.com/wp-content/uploads/2019/06/Download-Lo-Fi-Hip-Hop-Loops_700.jpg?fit=700%2C700&ssl=1"
                     },
@@ -66,21 +75,23 @@ const promiseItems = () => {
   });
 };
 
-const ItemListContainer = () => {
+const ItemListContainerCategory = () => {
 const classes = useStyle();
+const {Categoryid} = useParams ();
+
 
   const [itemsData, setItemsData] = useState([]);
   
   const ejecutarSeleccion = () => {
     promiseItems().then((data) => {
-      const dataFiltrada = data.filter((element) => element.destacado);
+      const dataFiltrada = data.filter((element) => element.categoria == Categoryid);
       setItemsData(dataFiltrada);
     });
   };
 
   useEffect(() => {
     ejecutarSeleccion();
-  }, []);
+  }, [Categoryid]);
 
     return <div>
     <h1>
@@ -89,4 +100,4 @@ const classes = useStyle();
     </div>
 };
 
-export default ItemListContainer;
+export default ItemListContainerCategory;

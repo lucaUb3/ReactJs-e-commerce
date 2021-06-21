@@ -6,10 +6,15 @@ export const itemListStyles = theme => {
               marginLeft: theme.spacing(2),
               
             },
+
         },
+       
+
         GridConteiner : {
+            display: 'flex',
+            alignItems: 'start',
             height: "100%",
-            paddingTop: 5,
+            paddingTop: 40,
             justifyContent: 'start',
         }
         
