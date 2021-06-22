@@ -25,7 +25,7 @@ export const ItemDetail = props => {
     return <>
        <div className={classes.root}>
       <Paper className={classes.paper}>
-        <Grid container spacing={2}>
+        <Grid className = {classes.paperContainer} container spacing={2}>
           <Grid item>
             <CardActionArea className = {classes.cardAction}>
               <CardMedia 
@@ -40,12 +40,14 @@ export const ItemDetail = props => {
               <Typography gutterBottom variant="subtitle1">
                 {sampleData.title} 
               </Typography>
+              <div className = {classes.detalle}>
               <Typography variant="body2" gutterBottom>
                  Detalle
               </Typography>
               <Typography variant="body2" color="textSecondary">
                 {sampleData.description}
               </Typography>
+              </div>
             </Grid>
             <Grid item className= {classes.reproductor}>
               <IconButton aria-label="previous">

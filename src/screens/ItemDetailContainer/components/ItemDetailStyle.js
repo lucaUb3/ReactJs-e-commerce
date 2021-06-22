@@ -2,15 +2,24 @@ import React from 'react';
 
 export const ItemDetailStyle = theme => {
 return({
-        root: {
+    root: {
     flexGrow: 1,
     padding: theme.spacing(4),
     marginTop: '1em',
+    
   },
   paper: {
+    display: 'flex',
     padding: theme.spacing(4),
     margin: 'auto',
     maxWidth: 400,
+   
+  },
+  paperContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'end',
+     
   },
   image: {
     width: 128,
@@ -24,6 +33,12 @@ return({
   },
   info : {
    display: 'flex',
-  }
+   flexDirection: 'column',
+  },
+  detalle: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  
     })
 }
