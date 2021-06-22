@@ -1,24 +1,4 @@
-import React, {useState, useEffect } from 'react';
-import {PageStyle} from './PageStyle.js';
-import {makeStyles,Typography} from '@material-ui/core';
-import {ItemCount } from '../Counter/ItemCounter.js';
-import {ItemList} from './ItemList.js';
-import Grid from '@material-ui/core/Grid';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import {itemListContainerStyles} from './ItemListContainerStyles.js'
-import {useParams} from "react-router-dom";
-
-
-
-
-const useStyle = makeStyles((theme) => itemListContainerStyles(theme));
-
-const promiseItems = () => {
-  return new Promise((resolve, reject) => {
-    
-    setTimeout(
-      () =>
-        resolve([
+export const data = [
             { id: 1, 
               destacado: true, 
               title: "Index of Metals",
@@ -38,7 +18,7 @@ const promiseItems = () => {
                 picture: {
                     pictureUrl:"https://cdn-resources.ableton.com/resources/public/2012/12/11/orchestral-strings.png"
                     },
-               },,
+               },
                { id: 3, 
                 destacado: true, 
                 title: "CreepBeat",
@@ -62,42 +42,41 @@ const promiseItems = () => {
                { id: 5, 
                 destacado: true, 
                 title: "NeoTokyo",
-                description: 'Brass Sounds and Sounds FX',
+                description: 'Cyberpunk Sounds and Sounds FX',
                 price: 200,
                 categoria: "beats",
                 picture: {
                     pictureUrl:"https://i0.wp.com/touchloops.com/wp-content/uploads/2019/06/Download-Lo-Fi-Hip-Hop-Loops_700.jpg?fit=700%2C700&ssl=1"
                     },
                },
-           ]),
-      2000
-    );
-  });
-};
-
-const ItemListContainerCategory = () => {
-const classes = useStyle();
-const {Categoryid} = useParams ();
-
-
-  const [itemsData, setItemsData] = useState([]);
-  
-  const ejecutarSeleccion = () => {
-    promiseItems().then((data) => {
-      const dataFiltrada = data.filter((element) => element.categoria == Categoryid);
-      setItemsData(dataFiltrada);
-    });
-  };
-
-  useEffect(() => {
-    ejecutarSeleccion();
-  }, [Categoryid]);
-
-    return <div>
-    <h1>
-     <ItemList itemsData = {itemsData} key = {itemsData.id}/>
-    </h1>
-    </div>
-};
-
-export default ItemListContainerCategory;
+               { id: 6, 
+                destacado: true, 
+                title: "Cinematic",
+                description: 'Cinematic Sounds and Sounds FX',
+                price: 250,
+                categoria: "samples",
+                picture: {
+                    pictureUrl:"https://cdn.shopify.com/s/files/1/0745/1879/products/Cinematic_Free_Packv2_1500x.jpg?v=1584796279"
+                    },
+               },
+               { id: 7, 
+                destacado: true, 
+                title: "Drums",
+                description: 'Drums Sounds and Sounds FX',
+                price: 250,
+                categoria: "beats",
+                picture: {
+                    pictureUrl:"https://i2.wp.com/touchloops.com/wp-content/uploads/2020/04/Live_Drum_Breaks_Sample_Pack_1000.jpg?fit=1000%2C1000&ssl=1"
+                    },
+               },
+               { id: 8, 
+                destacado: true, 
+                title: "Videogame",
+                description: 'Videogame Sounds and Sounds FX',
+                price: 70,
+                categoria: "beats",
+                picture: {
+                    pictureUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTarQ4RRPm1Xn3z-mLMnI5yM0uwXb0dAZeM5w&usqp=CAU"
+                    },
+               },
+           ];

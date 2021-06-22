@@ -22,5 +22,8 @@ return({
     maxWidth: '100%',
     maxHeight: '100%',
   },
+  info : {
+   display: 'flex',
+  }
     })
 }

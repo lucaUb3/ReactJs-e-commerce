@@ -7,6 +7,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from "@material-ui/core/styles";
 import {itemStyle} from "./ItemStyle.js";
+import {useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const useStyle = makeStyles((theme) => itemStyle(theme));
 
@@ -16,11 +18,12 @@ export const Item = props => {
 
     return <>
     <Card className = {classes.root}>
+        <Link to = {`/item/${element.id}` }>
         <CardActionArea className = {classes.cardAction}>
-        <CardMedia 
+        <CardMedia className = {classes.CardMedia}
             component = 'img'
             image = {element.picture.pictureUrl}
-            width ="50%"
+            width ="100%"
             title = {element.title} 
             />
         <CardContent className = {classes.CardContent}>
@@ -30,6 +33,7 @@ export const Item = props => {
             <Typography className = {classes.id}component = "p" >{element.id}</Typography>
         </CardContent>
         </CardActionArea>
+        </Link>
     </Card>
 
 </>

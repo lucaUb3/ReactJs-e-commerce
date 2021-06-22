@@ -9,9 +9,8 @@ export const itemStyle = theme => {
             backgroundColor: 'black',
             
         },
-        cardContent: {
-             
-            
+        CardMedia: {
+            height: 300,
           },
 
         

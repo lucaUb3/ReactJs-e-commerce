@@ -2,11 +2,11 @@
 import './App.css';
 import React from 'react';
 import {NavBar} from './components/NavBar/navbar';
-import ItemListContainer from './components/PageComponents/ItemListContainer.js';
-import ItemListContainerCategory from './components/PageComponents/ItemListContainerCategory.js';
+import ItemListContainer from './screens/ItemListContainer/ItemListContainer';
+import ItemListContainerCategory from './screens/ItemListContainer/ItemListContainerCategory';
 import {Counter} from './components/Counter/ItemCounter.js';
 import {ItemCount} from './components/Counter/ItemCounter';
-import {ItemDetailContainer} from './components/PageComponents/ItemDetailContainer.js';
+import {ItemDetailContainer} from './screens/ItemDetailContainer/ItemDetailContainer.js';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 const App = props => {
@@ -20,7 +20,7 @@ return <div>
 <Route exact path= "/category/:Categoryid">
 <ItemListContainerCategory/>
 </Route>
-<Route exact path= "/ItemDetail">
+<Route exact path= "/Item/:itemid">
 <ItemDetailContainer/>
 </Route>
 </Switch>
