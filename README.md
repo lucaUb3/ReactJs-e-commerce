@@ -1,3 +1,15 @@
+EJECUTAR npm- i
+
+SAMPLECITY
+APLICACION DE VENTA Y COMPRA DE BEATS/SAMPLES DE AUDIO.
+
+
+NAVEGABILIDAD ENTRE COMPONENTES POR CATEGORIA e ITEMS.
+FILTRADO DE DATA
+DETALLE Y VISTA DE LISTADO PRODUCTOS 
+DETALLE Y VISTA DE PRODUCTOS 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
