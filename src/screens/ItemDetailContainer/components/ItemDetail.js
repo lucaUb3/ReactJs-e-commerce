@@ -13,7 +13,7 @@ import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import IconButton from '@material-ui/core/IconButton';
-
+import {ItemCount} from '../../../components/Counter/ItemCounter.js'
 
 const useStyle = makeStyles((theme) => ItemDetailStyle(theme));
 
@@ -60,12 +60,15 @@ export const ItemDetail = props => {
               {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
               </IconButton>
             </Grid>
+            <div className = {classes.counter}>
+    <ItemCount stock = '10' initial = {1} />
+    </div>
           </Grid>
           <Grid item>
             <Typography variant="subtitle1">${sampleData.price}</Typography>
           </Grid>
       </Grid>
-    
+      
    </Paper>
       
     </div>
