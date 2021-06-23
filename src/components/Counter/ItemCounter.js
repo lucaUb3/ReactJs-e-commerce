@@ -13,16 +13,11 @@ const useStyles = makeStyles((theme) => itemCounterStyle(theme));
 
 export const ItemCount = (props) => {
   const classes = useStyles(); 
-  const {stock, initial} = props;
+  const {stock, initial, onAdd} = props;
   const [count, setCount] = useState(initial);
   const [buttonState, setButtonState] = useState(false);
 
-  const onAdd = (e) => {
-    if (count > 0 && count <= stock) {
-    console.log ('Tenes ' + count + ' samples en tu carrito')
-    }
-  }
-
+ 
   const addItem = (e) => {if (count == stock){
 
   }
@@ -51,7 +46,7 @@ return <section>
               </div>
           </div>
       
-    <button disabled={buttonState} onClick={e => count === 0 ? undefined : onAdd()}>
+    <button disabled={buttonState} onClick={e => count === 0 ? undefined : onAdd(count)}>
       <AddShoppingCartSharpIcon />
           AÑADIR AL CARRITO
     </button>

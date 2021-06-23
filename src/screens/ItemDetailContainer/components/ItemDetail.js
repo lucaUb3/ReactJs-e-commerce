@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {ItemDetailContainer} from '../ItemDetailContainer.js';
 import {makeStyles, useTheme} from "@material-ui/core/styles";
 import {ItemDetailStyle} from './ItemDetailStyle.js';
@@ -14,14 +14,26 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import IconButton from '@material-ui/core/IconButton';
 import {ItemCount} from '../../../components/Counter/ItemCounter.js'
+import {Link} from "react-router-dom";
+import {Button} from '@material-ui/core';
 
 const useStyle = makeStyles((theme) => ItemDetailStyle(theme));
+
+
 
 
 export const ItemDetail = props => {
     const {sampleData} = props;
     const classes = useStyle();
-     const theme = useTheme();
+    const theme = useTheme();
+    const [cart, setCart] = useState(0)
+     
+    const onAdd = count => {
+    setCart (count)
+    console.log ('Tenes ' + count + ' samples en tu carrito')
+    
+    }
+    console.log (cart)
     return <>
        <div className={classes.root}>
       <Paper className={classes.paper}>
@@ -61,8 +73,11 @@ export const ItemDetail = props => {
               </IconButton>
             </Grid>
             <div className = {classes.counter}>
-    <ItemCount stock = '10' initial = {1} />
-    </div>
+            {cart === 0 ? <ItemCount onAdd = {onAdd} stock = '10' initial = {1} /> : 
+            <Link to = {'/cart'}>
+            <Button >Terminar mi compra </Button> 
+            </Link>} 
+            </div>
           </Grid>
           <Grid item>
             <Typography variant="subtitle1">${sampleData.price}</Typography>

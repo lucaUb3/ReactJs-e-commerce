@@ -39,9 +39,7 @@ return({
     display: 'flex',
     flexDirection: 'column',
   },
-  counter: {
-    alignItems: 'end'
-  }
+ 
   
     })
 }
