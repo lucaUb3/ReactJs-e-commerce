@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useContext,useEffect} from 'react';
 import {ItemDetailContainer} from '../ItemDetailContainer.js';
 import {makeStyles, useTheme} from "@material-ui/core/styles";
 import {ItemDetailStyle} from './ItemDetailStyle.js';
@@ -16,7 +16,7 @@ import IconButton from '@material-ui/core/IconButton';
 import {ItemCount} from '../../../components/Counter/ItemCounter.js'
 import {Link} from "react-router-dom";
 import {Button} from '@material-ui/core';
-
+import {CartContext} from '../../../components/CartContext/CartContext.js'
 const useStyle = makeStyles((theme) => ItemDetailStyle(theme));
 
 
@@ -27,11 +27,17 @@ export const ItemDetail = props => {
     const classes = useStyle();
     const theme = useTheme();
     const [cart, setCart] = useState(0)
-     
+    const [productos,setProductos] = useContext(CartContext)
+
     const onAdd = count => {
     setCart (count)
     console.log ('Tenes ' + count + ' samples en tu carrito')
     
+    }
+    const addItem = (sampleData, cart) => {
+      const objetoContext = [{id:sampleData.id,title:sampleData.title,quantity:cart}]
+      setProductos (objetoContext)
+  
     }
     console.log (cart)
     return <>
@@ -75,7 +81,7 @@ export const ItemDetail = props => {
             <div className = {classes.counter}>
             {cart === 0 ? <ItemCount onAdd = {onAdd} stock = '10' initial = {1} /> : 
             <Link to = {'/cart'}>
-            <Button >Terminar mi compra </Button> 
+            <Button onClick = {()=>addItem(sampleData,cart)}>Terminar mi compra </Button> 
             </Link>} 
             </div>
           </Grid>

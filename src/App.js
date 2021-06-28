@@ -8,9 +8,12 @@ import {Counter} from './components/Counter/ItemCounter.js';
 import {ItemCount} from './components/Counter/ItemCounter';
 import {ItemDetailContainer} from './screens/ItemDetailContainer/ItemDetailContainer.js';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {CartProvider} from './components/CartContext/CartContext.js';
+
 
 const App = props => {
 return <div>
+<CartProvider>
 <BrowserRouter> 
 <NavBar/>
 <Switch>
@@ -25,6 +28,7 @@ return <div>
 </Route>
 </Switch>
 </BrowserRouter> 
+</CartProvider>
 </div>}
 
 export default App;
