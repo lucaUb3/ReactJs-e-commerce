@@ -27,7 +27,7 @@ export const ItemDetail = props => {
     const classes = useStyle();
     const theme = useTheme();
     const [cart, setCart] = useState(0)
-    const [productos,setProductos] = useContext(CartContext)
+    const [productos,addItem] = useContext(CartContext)
 
     const onAdd = count => {
     setCart (count)
@@ -35,8 +35,8 @@ export const ItemDetail = props => {
     
     }
     const addItem = (sampleData, cart) => {
-      const objetoContext = [{id:sampleData.id,title:sampleData.title,quantity:cart}]
-      setProductos (objetoContext)
+      const objetoContext = [{item:sampleData,quantity:cart}]
+      addItemm (objetoContext)
   
     }
     console.log (cart)
