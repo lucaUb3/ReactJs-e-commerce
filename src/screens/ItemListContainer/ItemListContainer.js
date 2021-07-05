@@ -7,6 +7,26 @@ import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {itemListContainerStyles} from './ItemListContainerStyles.js'
 import {data} from '../../services/Data.js';
+import {dataBase} from '../../Firebase/firebase';
+
+/*useEfectt (() => {
+  setLoading (true);
+  const itemCollection = dataBase.collection ("productos");
+  itemCollection.get().then((querySnapshot)=>{
+    if(querySnapshot.size === 0) {
+      console.log ('No results!');
+    }
+    setItems (querySnapshot.docs.map (doc => doc.data()));
+  }).catch ((error) => {
+    console.log ("error searching productos"),error)
+  }).finally (()=> {
+    setLoading(false);
+  });
+
+},[]);*/
+
+
+
 const useStyle = makeStyles((theme) => itemListContainerStyles(theme));
 
 const promiseItems = () => {

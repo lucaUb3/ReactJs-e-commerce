@@ -9,6 +9,7 @@ import {ItemCount} from './components/Counter/ItemCounter';
 import {ItemDetailContainer} from './screens/ItemDetailContainer/ItemDetailContainer.js';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {CartProvider} from './components/CartContext/CartContext.js';
+import {Cart} from './/screens/Cart/Cart.js';
 
 
 const App = props => {
@@ -25,6 +26,9 @@ return <div>
 </Route>
 <Route exact path= "/Item/:itemid">
 <ItemDetailContainer/>
+</Route>
+<Route exact path= "/cart">
+<Cart/>
 </Route>
 </Switch>
 </BrowserRouter> 

@@ -16,7 +16,9 @@ import IconButton from '@material-ui/core/IconButton';
 import {ItemCount} from '../../../components/Counter/ItemCounter.js'
 import {Link} from "react-router-dom";
 import {Button} from '@material-ui/core';
-import {CartContext} from '../../../components/CartContext/CartContext.js'
+import {CartContext} from '../../../components/CartContext/CartContext.js';
+import {dataBase} from '../../../Firebase/firebase.js';
+import {PurchaseButton} from '../../../components/PurchaseButton/PurchaseButton.js';
 const useStyle = makeStyles((theme) => ItemDetailStyle(theme));
 
 
@@ -27,19 +29,20 @@ export const ItemDetail = props => {
     const classes = useStyle();
     const theme = useTheme();
     const [cart, setCart] = useState(0)
-    const [productos,addItem] = useContext(CartContext)
+    const [click,setClick] = useState (false);
+    const [addItem,removeItem] = useContext(CartContext)
 
     const onAdd = count => {
     setCart (count)
-    console.log ('Tenes ' + count + ' samples en tu carrito')
+    setClick (true);
+    addItem ({item:sampleData,quantity:cart})
+    }
     
+    const clickCancelar = c1 => {
+      setClick (false);
+      removeItem(sampleData.id);
+
     }
-    const addItem = (sampleData, cart) => {
-      const objetoContext = [{item:sampleData,quantity:cart}]
-      addItemm (objetoContext)
-  
-    }
-    console.log (cart)
     return <>
        <div className={classes.root}>
       <Paper className={classes.paper}>
@@ -79,10 +82,9 @@ export const ItemDetail = props => {
               </IconButton>
             </Grid>
             <div className = {classes.counter}>
-            {cart === 0 ? <ItemCount onAdd = {onAdd} stock = '10' initial = {1} /> : 
-            <Link to = {'/cart'}>
-            <Button onClick = {()=>addItem(sampleData,cart)}>Terminar mi compra </Button> 
-            </Link>} 
+            {click ? <PurchaseButton clickCancelar ={clickCancelar}/> :
+            <ItemCount onAdd = {onAdd} stock = '10' initial = {1} /> 
+            } 
             </div>
           </Grid>
           <Grid item>

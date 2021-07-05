@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {itemListContainerStyles} from './ItemListContainerStyles.js'
 import {useParams} from "react-router-dom";
-import {data} from "../../services/Data.js"
+import {data} from "../../services/Data.js";
 
 
 
