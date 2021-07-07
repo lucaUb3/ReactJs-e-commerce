@@ -30,7 +30,7 @@ export const ItemDetail = props => {
     const theme = useTheme();
     const [cart, setCart] = useState(0)
     const [click,setClick] = useState (false);
-    const [addItem,removeItem] = useContext(CartContext)
+    const {addItem,removeItem} = useContext(CartContext)
 
     const onAdd = count => {
     setCart (count)

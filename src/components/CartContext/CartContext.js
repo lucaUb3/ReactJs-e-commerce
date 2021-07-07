@@ -44,6 +44,7 @@ export const CartProvider = ({children}) => {
       console.log ('Carrito Actualizado:',itemsCart)
       },[itemsCart])
 
-      return <CartContext.Provider value = {[itemsCart,addItem,clear,removeItem,subTotal,itemsQuantity]}>
+      return <CartContext.Provider value = {{itemsCart,addItem,clear,removeItem,subTotal,itemsQuantity}}>
       {children}
       </CartContext.Provider>
+}
